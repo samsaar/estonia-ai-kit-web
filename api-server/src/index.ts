@@ -6,7 +6,6 @@ import { parseString } from 'xml2js';
 import { promisify } from 'util';
 import { rikDataLoader } from './rik-data-loader.js';
 import { openDataClient } from './opendata-client.js';
-import { riigiteatajaClient } from './riigiteataja-client.js';
 
 dotenv.config();
 
@@ -459,108 +458,6 @@ app.post('/api/opendata/sparql', async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Failed to execute SPARQL query',
-      message: error.message,
-    });
-  }
-});
-
-// Riigiteataja Court Decisions endpoints
-app.get('/api/riigiteataja/decisions', async (req, res) => {
-  try {
-    const { query, limit } = req.query;
-
-    const decisions = await riigiteatajaClient.searchCourtDecisions(
-      query as string,
-      parseInt(limit as string) || 20
-    );
-
-    res.json({
-      success: true,
-      data: decisions,
-      source: 'Riigiteataja (Court Decisions)',
-      timestamp: new Date().toISOString(),
-    });
-  } catch (error: any) {
-    console.error('Riigiteataja API error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch court decisions',
-      message: error.message,
-    });
-  }
-});
-
-app.get('/api/riigiteataja/decisions/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const decision = await riigiteatajaClient.getDecisionById(id);
-
-    if (decision) {
-      res.json({
-        success: true,
-        data: decision,
-        source: 'Riigiteataja',
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        error: 'Decision not found',
-      });
-    }
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch decision',
-      message: error.message,
-    });
-  }
-});
-
-app.get('/api/riigiteataja/decisions/type/:type', async (req, res) => {
-  try {
-    const { type } = req.params;
-    const { limit } = req.query;
-
-    const decisions = await riigiteatajaClient.getDecisionsByType(
-      type,
-      parseInt(limit as string) || 10
-    );
-
-    res.json({
-      success: true,
-      data: decisions,
-      source: 'Riigiteataja',
-      filter: { type },
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch decisions by type',
-      message: error.message,
-    });
-  }
-});
-
-app.get('/api/riigiteataja/decisions/court/:court', async (req, res) => {
-  try {
-    const { court } = req.params;
-    const { limit } = req.query;
-
-    const decisions = await riigiteatajaClient.getDecisionsByCourt(
-      court,
-      parseInt(limit as string) || 10
-    );
-
-    res.json({
-      success: true,
-      data: decisions,
-      source: 'Riigiteataja',
-      filter: { court },
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch decisions by court',
       message: error.message,
     });
   }
