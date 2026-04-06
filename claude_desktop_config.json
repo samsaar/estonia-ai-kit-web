@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "estonia-rik": {
+      "command": "node",
+      "args": ["d:\\Arendused\\Hr Abel\\estonia-ai-kit\\mcp\\rik\\dist\\index.js"]
+    },
+    "estonia-open-data": {
+      "command": "node",
+      "args": ["d:\\Arendused\\Hr Abel\\estonia-ai-kit\\mcp\\open-data\\dist\\index.js"]
+    }
+  }
+}

@@ -1,11 +1,12 @@
-import { Terminal, Shield, CreditCard, FileText, CheckCircle } from 'lucide-react'
+import { Shield, CreditCard, FileText, CheckCircle } from 'lucide-react';
 
 export default function CLITools() {
   const tools = [
     {
       name: 'EMTA Tax & Customs',
       command: 'emta-cli',
-      description: 'Access your tax declarations and customs data through the Estonian Tax and Customs Board.',
+      description:
+        'Access your tax declarations and customs data through the Estonian Tax and Customs Board.',
       status: 'active',
       icon: FileText,
       auth: 'Smart-ID',
@@ -44,14 +45,15 @@ export default function CLITools() {
         'lhv pay --help                     # SEPA payment options',
       ],
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-white mb-4">CLI Tools</h1>
         <p className="text-gray-300 text-lg">
-          Command-line tools for authenticated access to Estonian government and private sector services
+          Command-line tools for authenticated access to Estonian government and private sector
+          services
         </p>
       </div>
 
@@ -61,14 +63,15 @@ export default function CLITools() {
           Authentication & Security
         </h3>
         <p className="text-gray-300">
-          CLI tools that require authentication (Smart-ID, ID-card) authenticate as <strong>you</strong> and 
-          access <strong>your</strong> data. Sessions expire after approximately 30 minutes for security.
+          CLI tools that require authentication (Smart-ID, ID-card) authenticate as{' '}
+          <strong>you</strong> and access <strong>your</strong> data. Sessions expire after
+          approximately 30 minutes for security.
         </p>
       </div>
 
       <div className="space-y-6">
         {tools.map((tool) => {
-          const Icon = tool.icon
+          const Icon = tool.icon;
           return (
             <div
               key={tool.name}
@@ -120,13 +123,11 @@ export default function CLITools() {
               <div>
                 <h4 className="text-sm font-semibold text-gray-400 mb-2">Usage:</h4>
                 <pre className="bg-slate-900 rounded-lg p-4 overflow-x-auto">
-                  <code className="text-sm text-gray-300">
-                    {tool.usage.join('\n')}
-                  </code>
+                  <code className="text-sm text-gray-300">{tool.usage.join('\n')}</code>
                 </pre>
               </div>
             </div>
-          )
+          );
         })}
       </div>
 
@@ -139,7 +140,9 @@ export default function CLITools() {
           <div>
             <p className="text-gray-300 mb-2">1. Add the marketplace (one-time setup):</p>
             <pre className="bg-slate-900 rounded-lg p-4">
-              <code className="text-sm text-green-400">/plugin marketplace add stefanoamorelli/estonia-ai-kit</code>
+              <code className="text-sm text-green-400">
+                /plugin marketplace add stefanoamorelli/estonia-ai-kit
+              </code>
             </pre>
           </div>
           <div>
@@ -154,5 +157,5 @@ export default function CLITools() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,11 +1,12 @@
-import { Database, Globe, Code, CheckCircle, Clock } from 'lucide-react'
+import { Database, Globe, Code, CheckCircle, Clock } from 'lucide-react';
 
 export default function MCPServers() {
   const servers = [
     {
       name: 'Estonian Business Register (RIK)',
       package: '@estonia-ai-kit/rik-mcp-server',
-      description: 'Access comprehensive business registry data including company information, board members, and financial reports.',
+      description:
+        'Access comprehensive business registry data including company information, board members, and financial reports.',
       status: 'wip',
       icon: Database,
       features: [
@@ -44,14 +45,15 @@ export default function MCPServers() {
   }
 }`,
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-white mb-4">MCP Servers</h1>
         <p className="text-gray-300 text-lg">
-          Model Context Protocol servers for seamless AI integration with Estonian government services
+          Model Context Protocol servers for seamless AI integration with Estonian government
+          services
         </p>
       </div>
 
@@ -61,15 +63,16 @@ export default function MCPServers() {
           What is MCP?
         </h3>
         <p className="text-gray-300">
-          Model Context Protocol (MCP) is an open protocol that standardizes how AI applications 
-          connect with external data sources and tools. Estonia AI Kit implements MCP servers for 
-          various Estonian services, making them accessible to AI models like Claude, GPT, and others.
+          Model Context Protocol (MCP) is an open protocol that standardizes how AI applications
+          connect with external data sources and tools. Estonia AI Kit implements MCP servers for
+          various Estonian services, making them accessible to AI models like Claude, GPT, and
+          others.
         </p>
       </div>
 
       <div className="space-y-6">
         {servers.map((server) => {
-          const Icon = server.icon
+          const Icon = server.icon;
           return (
             <div
               key={server.name}
@@ -124,7 +127,7 @@ export default function MCPServers() {
                 </pre>
               </div>
             </div>
-          )
+          );
         })}
       </div>
 
@@ -154,5 +157,5 @@ export default function MCPServers() {
         </div>
       </div>
     </div>
-  )
+  );
 }

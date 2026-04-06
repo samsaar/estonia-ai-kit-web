@@ -1,14 +1,14 @@
-import { Server, Terminal, Database, TrendingUp, Users, Globe } from 'lucide-react'
-import StatsCard from '../components/StatsCard'
-import ServiceCard from '../components/ServiceCard'
+import { Server, Terminal, Database, TrendingUp, Users, Globe } from 'lucide-react';
+import StatsCard from '../components/StatsCard';
+import ServiceCard from '../components/ServiceCard';
 
 export default function Dashboard() {
   const stats = [
-    { label: 'MCP Servers', value: '2', icon: Server, color: 'blue' },
-    { label: 'CLI Tools', value: '2', icon: Terminal, color: 'green' },
-    { label: 'Active Services', value: '4', icon: Database, color: 'purple' },
-    { label: 'API Endpoints', value: '15+', icon: TrendingUp, color: 'orange' },
-  ]
+    { label: 'MCP Servers', value: '2', icon: Server, color: 'blue' as const },
+    { label: 'CLI Tools', value: '2', icon: Terminal, color: 'green' as const },
+    { label: 'Active Services', value: '4', icon: Database, color: 'purple' as const },
+    { label: 'API Endpoints', value: '15+', icon: TrendingUp, color: 'orange' as const },
+  ];
 
   const services = [
     {
@@ -39,14 +39,12 @@ export default function Dashboard() {
       type: 'CLI Tool',
       icon: Users,
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-white mb-4">
-          🇪🇪 The Digital Nation's AI Toolkit
-        </h1>
+        <h1 className="text-4xl font-bold text-white mb-4">🇪🇪 The Digital Nation's AI Toolkit</h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
           Build AI-powered applications with Estonia's world-leading digital infrastructure
         </p>
@@ -97,5 +95,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }

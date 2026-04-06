@@ -1,4 +1,4 @@
-import { BookOpen, ExternalLink, Code, Github, Globe } from 'lucide-react'
+import { BookOpen, ExternalLink, Code, Github, Globe } from 'lucide-react';
 
 export default function Documentation() {
   const resources = [
@@ -38,7 +38,7 @@ export default function Documentation() {
       description: 'Business registry API documentation',
       icon: Code,
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
@@ -70,12 +70,10 @@ export default function Documentation() {
               <code className="text-sm text-green-400">
                 git clone https://github.com/stefanoamorelli/estonia-ai-kit.git{'\n'}
                 cd estonia-ai-kit{'\n'}
-                {'\n'}
-                # TypeScript packages{'\n'}
+                {'\n'}# TypeScript packages{'\n'}
                 bun install{'\n'}
                 bun run build{'\n'}
-                {'\n'}
-                # Go CLI tools{'\n'}
+                {'\n'}# Go CLI tools{'\n'}
                 cd cli/emta && go build -o emta-cli .{'\n'}
                 cd cli/lhv && make install
               </code>
@@ -87,21 +85,16 @@ export default function Documentation() {
             <pre className="bg-slate-900 rounded-lg p-4 overflow-x-auto">
               <code className="text-sm text-gray-300">
                 estonia-ai-kit/{'\n'}
-                ├── cli/                       # CLI tools / skills (authenticated services){'\n'}
-                │   ├── emta/                  # EMTA Tax & Customs CLI (Go){'\n'}
-                │   └── lhv/                   # LHV Bank CLI (Go){'\n'}
-                ├── mcp/                       # MCP servers{'\n'}
-                │   ├── rik/                   # Business Register{'\n'}
-                │   └── open-data/             # Statistics Estonia{'\n'}
-                ├── plugins/                   # Claude Code plugin marketplace{'\n'}
-                │   ├── emta/                  # EMTA plugin + skill{'\n'}
-                │   └── lhv/                   # LHV plugin + skill{'\n'}
-                ├── packages/                  # Shared TypeScript libraries{'\n'}
-                │   ├── shared/                # Common utilities{'\n'}
-                │   └── riigiteataja-api-client/{'\n'}
-                ├── rag/                       # RAG pipelines{'\n'}
-                │   └── riigiteataja/          # Legal documents{'\n'}
-                └── tests/                     # E2E tests
+                ├── cli/ # CLI tools / skills (authenticated services){'\n'}│ ├── emta/ # EMTA Tax &
+                Customs CLI (Go){'\n'}│ └── lhv/ # LHV Bank CLI (Go){'\n'}
+                ├── mcp/ # MCP servers{'\n'}│ ├── rik/ # Business Register{'\n'}│ └── open-data/ #
+                Statistics Estonia{'\n'}
+                ├── plugins/ # Claude Code plugin marketplace{'\n'}│ ├── emta/ # EMTA plugin + skill
+                {'\n'}│ └── lhv/ # LHV plugin + skill{'\n'}
+                ├── packages/ # Shared TypeScript libraries{'\n'}│ ├── shared/ # Common utilities
+                {'\n'}│ └── riigiteataja-api-client/{'\n'}
+                ├── rag/ # RAG pipelines{'\n'}│ └── riigiteataja/ # Legal documents{'\n'}
+                └── tests/ # E2E tests
               </code>
             </pre>
           </div>
@@ -115,7 +108,7 @@ export default function Documentation() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {resources.map((resource) => {
-            const Icon = resource.icon
+            const Icon = resource.icon;
             return (
               <a
                 key={resource.title}
@@ -135,7 +128,7 @@ export default function Documentation() {
                   <p className="text-sm text-gray-400">{resource.description}</p>
                 </div>
               </a>
-            )
+            );
           })}
         </div>
       </div>
@@ -164,12 +157,15 @@ export default function Documentation() {
       <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700/50">
         <h2 className="text-2xl font-bold text-white mb-4">License</h2>
         <p className="text-gray-300 mb-4">
-          This open-source project is licensed under the <strong>GNU Affero General Public License v3.0 (AGPL-3.0)</strong>.
+          This open-source project is licensed under the{' '}
+          <strong>GNU Affero General Public License v3.0 (AGPL-3.0)</strong>.
         </p>
         <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
           <li>✅ You can use, modify, and distribute this software</li>
           <li>✅ If you modify and distribute it, you must release your changes under AGPL-3.0</li>
-          <li>✅ If you run a modified version on a server, you must provide the source code to users</li>
+          <li>
+            ✅ If you run a modified version on a server, you must provide the source code to users
+          </li>
         </ul>
         <p className="text-gray-400 mt-4 text-sm">
           For commercial licensing options or other licensing inquiries, please contact{' '}
@@ -179,5 +175,5 @@ export default function Documentation() {
         </p>
       </div>
     </div>
-  )
+  );
 }

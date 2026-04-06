@@ -1,20 +1,29 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Home, Server, Terminal, BookOpen, Github } from 'lucide-react'
-import { ReactNode } from 'react'
+import { Link, useLocation, Outlet } from 'react-router-dom';
+import {
+  Home,
+  Server,
+  Terminal,
+  BookOpen,
+  Github,
+  Database,
+  FileText,
+  CreditCard,
+  Scale,
+} from 'lucide-react';
 
-interface LayoutProps {
-  children: ReactNode
-}
-
-export default function Layout({ children }: LayoutProps) {
-  const location = useLocation()
+export default function Layout() {
+  const location = useLocation();
 
   const navigation = [
     { name: 'Dashboard', href: '/', icon: Home },
+    { name: 'Live Data', href: '/live-data', icon: Database },
+    { name: 'Court Decisions', href: '/court-decisions', icon: Scale },
+    { name: 'EMTA', href: '/emta', icon: FileText },
+    { name: 'LHV Bank', href: '/lhv', icon: CreditCard },
     { name: 'MCP Servers', href: '/mcp-servers', icon: Server },
     { name: 'CLI Tools', href: '/cli-tools', icon: Terminal },
     { name: 'Documentation', href: '/documentation', icon: BookOpen },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
@@ -28,24 +37,24 @@ export default function Layout({ children }: LayoutProps) {
                 </h1>
               </div>
               <div className="hidden md:block ml-10">
-                <div className="flex items-baseline space-x-4">
+                <div className="flex space-x-4">
                   {navigation.map((item) => {
-                    const Icon = item.icon
-                    const isActive = location.pathname === item.href
+                    const Icon = item.icon;
+                    const isActive = location.pathname === item.href;
                     return (
                       <Link
                         key={item.name}
                         to={item.href}
-                        className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                        className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                           isActive
-                            ? 'bg-blue-600 text-white'
-                            : 'text-gray-300 hover:bg-slate-700 hover:text-white'
+                            ? 'bg-blue-500 text-white'
+                            : 'text-gray-300 hover:bg-slate-800 hover:text-white'
                         }`}
                       >
-                        <Icon className="w-4 h-4 mr-2" />
+                        <Icon className="mr-2 h-4 w-4" />
                         {item.name}
                       </Link>
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -65,7 +74,7 @@ export default function Layout({ children }: LayoutProps) {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children}
+        <Outlet />
       </main>
 
       <footer className="mt-auto py-6 text-center text-gray-400 text-sm">
@@ -73,5 +82,5 @@ export default function Layout({ children }: LayoutProps) {
         <p className="mt-2">Copyright © 2025 Stefano Amorelli | AGPL-3.0 License</p>
       </footer>
     </div>
-  )
+  );
 }

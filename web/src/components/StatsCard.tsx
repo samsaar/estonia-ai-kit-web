@@ -1,10 +1,10 @@
-import { LucideIcon } from 'lucide-react'
+import { LucideIcon } from 'lucide-react';
 
 interface StatsCardProps {
-  label: string
-  value: string
-  icon: LucideIcon
-  color: 'blue' | 'green' | 'purple' | 'orange'
+  label: string;
+  value: string;
+  icon: LucideIcon;
+  color: 'blue' | 'green' | 'purple' | 'orange';
 }
 
 const colorClasses = {
@@ -12,7 +12,7 @@ const colorClasses = {
   green: 'bg-green-600/20 text-green-400',
   purple: 'bg-purple-600/20 text-purple-400',
   orange: 'bg-orange-600/20 text-orange-400',
-}
+};
 
 export default function StatsCard({ label, value, icon: Icon, color }: StatsCardProps) {
   return (
@@ -27,5 +27,5 @@ export default function StatsCard({ label, value, icon: Icon, color }: StatsCard
         </div>
       </div>
     </div>
-  )
+  );
 }

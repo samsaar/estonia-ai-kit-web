@@ -1,24 +1,32 @@
-import { LucideIcon, CheckCircle, Clock } from 'lucide-react'
+import { LucideIcon, CheckCircle, Clock } from 'lucide-react';
 
 interface ServiceCardProps {
-  name: string
-  description: string
-  status: 'active' | 'wip'
-  type: string
-  icon: LucideIcon
+  name: string;
+  description: string;
+  status: 'active' | 'wip';
+  type: string;
+  icon: LucideIcon;
 }
 
-export default function ServiceCard({ name, description, status, type, icon: Icon }: ServiceCardProps) {
+export default function ServiceCard({
+  name,
+  description,
+  status,
+  type,
+  icon: Icon,
+}: ServiceCardProps) {
   return (
     <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start">
-          <div className={`p-3 rounded-lg mr-4 ${
-            status === 'active' ? 'bg-green-600/20' : 'bg-orange-600/20'
-          }`}>
-            <Icon className={`w-6 h-6 ${
-              status === 'active' ? 'text-green-400' : 'text-orange-400'
-            }`} />
+          <div
+            className={`p-3 rounded-lg mr-4 ${
+              status === 'active' ? 'bg-green-600/20' : 'bg-orange-600/20'
+            }`}
+          >
+            <Icon
+              className={`w-6 h-6 ${status === 'active' ? 'text-green-400' : 'text-orange-400'}`}
+            />
           </div>
           <div>
             <h3 className="text-lg font-bold text-white mb-1">{name}</h3>
@@ -42,5 +50,5 @@ export default function ServiceCard({ name, description, status, type, icon: Ico
       </div>
       <p className="text-gray-300">{description}</p>
     </div>
-  )
+  );
 }

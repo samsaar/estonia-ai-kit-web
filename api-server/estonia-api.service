@@ -1,0 +1,16 @@
+[Unit]
+Description=Estonia AI Kit API Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/estonia-ai-kit-api
+Environment=NODE_ENV=production
+Environment=PORT=3001
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
